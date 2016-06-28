@@ -1,13 +1,7 @@
-//Trabalho feito pela aluna Amanda Caroline Bonassoli Silva
-//Curso: Ciencia da Computacao - 3 Semestre
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,7 +10,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.MaskFormatter;
 
 public class Exercicio51 {
 
@@ -31,9 +24,7 @@ public class Exercicio51 {
 	static int tmaximoContadorC = 100;
 	static int tmaximoContadorT = 100;
 
-	static JFrame tela = new JFrame();
 	static JFrame telaC = new JFrame();
-	static JFrame telaT = new JFrame();
 
 	static JFrame telaCadastroC = new JFrame();
 	static JFrame telaConsultarC = new JFrame();
@@ -73,18 +64,12 @@ public class Exercicio51 {
 	static String[][] matrizC = new String[tmaximoContadorC][camposC];
 	static String[][] matrizT = new String[tmaximoContadorT][camposT];
 
-	static String[] vetorC = new String[8];
-	static String[] vetorT = new String[8];
-
-	static JButton cliente = new JButton("MENU CLIENTE");
-	static JButton telefone = new JButton("MENU TELEFONE");
-
 	static JButton cadastrarC = new JButton("CADASTRAR CLIENTE");
 	static JButton excluirC = new JButton("EXCLUIR CLIENTE");
-	static JButton consultarC = new JButton("CONSULTAR CLIENTE");
+	static JButton consultarC = new JButton("CONSULTAR");
 
-	static JButton cadastrarT = new JButton("CADASTRAR TELEFONE");
-	static JButton excluirT = new JButton("EXCLUIR TELEFONE");
+	static JButton cadastrarT = new JButton("TELEFONE");
+	static JButton excluirT = new JButton("EXCLUIR");
 	static JButton consultarT = new JButton("CONSULTAR TELEFONE");
 
 	static JButton sair = new JButton("SAIR");
@@ -92,84 +77,47 @@ public class Exercicio51 {
 	static JButton salvarT = new JButton("SALVAR");
 	static JButton voltar = new JButton("VOLTAR");
 	static JButton voltar1 = new JButton("VOLTAR");
-	static JButton voltar3 = new JButton("VOLTAR");
+	static JButton voltar2 = new JButton("VOLTAR");
 
-	static JLabel nomeC = new JLabel("*NOME:");
-	static JLabel rg = new JLabel("*RG:");
+	static JLabel nomeC = new JLabel("NOME:");
+	static JLabel rg = new JLabel("RG:");
 	static JLabel cpf = new JLabel("*CPF:");
-	static JLabel nascimento = new JLabel("*DATA DE NASCIMENTO:");
+	static JLabel nascimento = new JLabel("DATA DE NASCIMENTO:");
 	static JLabel email = new JLabel("E-MAIL:");
-	static JLabel endereco = new JLabel("*ENDEREÇO:");
+	static JLabel endereco = new JLabel("ENDEREÇO:");
 	static JLabel cidade = new JLabel("CIDADE:");
 	static JLabel estado = new JLabel("ESTADO:");
-	static JLabel mensagem = new JLabel();
 
-	static JLabel nomeT = new JLabel("*NOME:");
-	static JLabel telefoneFixo = new JLabel("*TELEFONE FIXO:");
+	static JLabel nomeT = new JLabel("NOME:");
+	static JLabel telefoneFixo = new JLabel("TELEFONE FIXO:");
 	static JLabel celular1 = new JLabel("CELULAR(1):");
 	static JLabel celular2 = new JLabel("CELULAR(2):");
 	static JLabel comercial = new JLabel("TELEFONE COMERCIAL:");
-	static JLabel telefoneMae = new JLabel("*TELEFONE/MÃE:");
-	static JLabel telefonePai = new JLabel("*TELEFONE/PAI:");
+	static JLabel telefoneMae = new JLabel("TELEFONE/MÃE:");
+	static JLabel telefonePai = new JLabel("TELEFONE/PAI:");
 	static JLabel telefoneRecado = new JLabel("TELEFONE RECADO:");
+	
+	static JTextField campoNomeC = new JTextField();
+	static JTextField campoEndereco = new JTextField();
+	static JTextField campoCidade = new JTextField();
+	static JTextField campoRG = new JTextField();
+	static JTextField campoCPF = new JTextField();
+	static JTextField campoNascimento = new JTextField();
+	static JTextField campoEmail = new JTextField();
+	static JTextField campoEstado = new JTextField();
 
-	static MaskFormatter mascaraRG = null;
-	static MaskFormatter mascaraCPF = null;
-	static MaskFormatter mascaraNascimento = null;
-	static MaskFormatter mascaraEmail = null;
-	static MaskFormatter mascaraEstado = null;
-
-	static MaskFormatter mascaraTelefoneFixo = null;
-	static MaskFormatter mascaraCelular1 = null;
-	static MaskFormatter mascaraCelular2 = null;
-	static MaskFormatter mascaraComercial = null;
-	static MaskFormatter mascaraTelefoneMae = null;
-	static MaskFormatter mascaraTelefonePai = null;
-	static MaskFormatter mascaraTelefoneRecado = null;
-
-	static JTextField campoNomeC;
-	static JTextField campoEndereco;
-	static JTextField campoCidade;
-	static JFormattedTextField campoRG;
-	static JFormattedTextField campoCPF;
-	static JFormattedTextField campoNascimento;
-	static JFormattedTextField campoEmail;
-	static JFormattedTextField campoEstado;
-
-	static JTextField campoNomeT;
-	static JFormattedTextField campoTelefoneFixo;
-	static JFormattedTextField campoCelular1;
-	static JFormattedTextField campoCelular2;
-	static JFormattedTextField campoComercial;
-	static JFormattedTextField campoTelefoneMae;
-	static JFormattedTextField campoTelefonePai;
-	static JFormattedTextField campoTelefoneRecado;
+	static JTextField campoNomeT = new JTextField();
+	static JTextField campoTelefoneFixo = new JTextField();
+	static JTextField campoCelular1 = new JTextField();
+	static JTextField campoCelular2 = new JTextField();
+	static JTextField campoComercial = new JTextField();
+	static JTextField campoTelefoneMae = new JTextField();
+	static JTextField campoTelefonePai = new JTextField();
+	static JTextField campoTelefoneRecado = new JTextField();
 
 	public static void main(String[] args) {
-		iniciar();
+		iniciarC();
 		botoesTela();
-	}
-
-	static void iniciar() {
-
-		tela.setTitle("MENU");
-		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		tela.setSize(700, 400);
-		tela.setLocation(330, 150);
-		tela.setLayout(null);
-		tela.setResizable(false);
-		tela.setVisible(true);
-		tela.getContentPane().setBackground(Color.CYAN);
-
-		tela.add(mensagem).setBounds(250, 100, 250, 50);
-		mensagem.setText("ESCOLHA UMA DAS DUAS OPÇÕES: ");
-
-		tela.add(cliente).setBounds(150, 150, 180, 50);
-		tela.add(telefone).setBounds(350, 150, 180, 50);
-		tela.add(sair).setBounds(10, 10, 100, 30);
-		cliente.setForeground(Color.MAGENTA);
-		telefone.setForeground(Color.MAGENTA);
-		sair.setForeground(Color.MAGENTA);
 	}
 
 	static void iniciarC() {
@@ -181,16 +129,12 @@ public class Exercicio51 {
 		telaC.setLayout(null);
 		telaC.setResizable(false);
 		telaC.setVisible(true);
-		telaC.getContentPane().setBackground(Color.CYAN);
+		telaC.getContentPane().setBackground(Color.WHITE);
 
 		telaC.add(cadastrarC).setBounds(55, 240, 180, 50);
-		telaC.add(consultarC).setBounds(55, 320, 180, 50);
-		telaC.add(voltar).setBounds(15, 630, 100, 30);
 		telaC.add(sair).setBounds(180, 630, 100, 30);
 
 		cadastrarC.setForeground(Color.MAGENTA);
-		consultarC.setForeground(Color.MAGENTA);
-		voltar.setForeground(Color.MAGENTA);
 		sair.setForeground(Color.MAGENTA);
 	}
 
@@ -215,7 +159,8 @@ public class Exercicio51 {
 		telaCadastroC.add(estado).setBounds(250, 330, 50, 100);
 
 		telaCadastroC.add(salvarC).setBounds(60, 550, 150, 50);
-		telaCadastroC.add(voltar1).setBounds(480, 550, 150, 50);
+		telaCadastroC.add(consultarC).setBounds(268, 550, 150, 50);
+		telaCadastroC.add(cadastrarT).setBounds(480, 550, 150, 50);
 
 		nomeC.setForeground(Color.MAGENTA);
 		rg.setForeground(Color.MAGENTA);
@@ -227,36 +172,9 @@ public class Exercicio51 {
 		estado.setForeground(Color.MAGENTA);
 
 		salvarC.setForeground(Color.MAGENTA);
-		voltar1.setForeground(Color.MAGENTA);
-
-		try {
-
-			mascaraRG = new MaskFormatter(" # # . # # # . # # # - #");
-			mascaraCPF = new MaskFormatter(" # # # . # # # . # # # - # #");
-			mascaraNascimento = new MaskFormatter(" # # / # # / # # # #");
-			mascaraEmail = new MaskFormatter(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
-			mascaraEstado = new MaskFormatter("     U U");
-
-			mascaraRG.setPlaceholderCharacter('_');
-			mascaraCPF.setPlaceholderCharacter('_');
-			mascaraNascimento.setPlaceholderCharacter('_');
-			mascaraEmail.setPlaceholderCharacter('_');
-			mascaraEstado.setPlaceholderCharacter('_');
-
-		} catch (ParseException excp) {
-			System.err.println("Erro na formatação: " + excp.getMessage());
-			System.exit(-1);
-		}
-
-		campoNomeC = new JTextField();
-		campoRG = new JFormattedTextField(mascaraRG);
-		campoCPF = new JFormattedTextField(mascaraCPF);
-		campoNascimento = new JFormattedTextField(mascaraNascimento);
-		campoEmail = new JFormattedTextField(mascaraEmail);
-		campoEndereco = new JTextField();
-		campoCidade = new JTextField();
-		campoEstado = new JFormattedTextField(mascaraEstado);
-
+		consultarC.setForeground(Color.MAGENTA);
+		cadastrarT.setForeground(Color.MAGENTA);
+		
 		telaCadastroC.add(campoNomeC).setBounds(10, 70, 650, 40);
 		telaCadastroC.add(campoRG).setBounds(10, 150, 200, 40);
 		telaCadastroC.add(campoCPF).setBounds(250, 150, 200, 40);
@@ -283,9 +201,13 @@ public class Exercicio51 {
 		painelConsultaC.setLocation(10, 10);
 		painelConsultaC.setLayout(null);
 		painelConsultaC.setBackground(Color.WHITE);
+		
 		painelConsultaC.add(excluirC).setBounds(550, 615, 200, 30);
+		painelConsultaC.add(cadastrarC).setBounds(100, 615, 200, 30);
+		painelConsultaC.add(consultarT).setBounds(1000,615, 200, 30);
 
 		excluirC.setForeground(Color.MAGENTA);
+		consultarT.setForeground(Color.MAGENTA);
 		painelConsultaC.add(tabelaC);
 		painelConsultaC.add(barraC);
 
@@ -308,30 +230,34 @@ public class Exercicio51 {
 
 	static void camposCliente() {
 		b = 0;
+		
+			matrizC[a][0] = campoNomeC.getText();
+			matrizC[a][1] = campoRG.getText();
+			matrizC[a][2] = campoCPF.getText();
+			matrizC[a][3] = campoNascimento.getText();
+			matrizC[a][4] = campoEmail.getText();
+			matrizC[a][5] = campoEndereco.getText();
+			matrizC[a][6] = campoCidade.getText();
+			matrizC[a][7] = campoEstado.getText();
+			System.out.println(matrizC[a][b]);
+			
+			campoNomeC.setText("");
+			campoRG.setText("");
+			campoCPF.setText("");
+			campoNascimento.setText("");
+			campoEmail.setText("");
+			campoEndereco.setText("");
+			campoCidade.setText("");
+			campoEstado.setText("");
+	 a++;
 
-		matrizC[a][b] = campoNomeC.getText();
-		matrizC[a][b + 1] = campoRG.getText();
-		matrizC[a][b + 2] = campoCPF.getText();
-		matrizC[a][b + 3] = campoNascimento.getText();
-		matrizC[a][b + 4] = campoEmail.getText();
-		matrizC[a][b + 5] = campoEndereco.getText();
-		matrizC[a][b + 6] = campoCidade.getText();
-		matrizC[a][b + 7] = campoEstado.getText();
 
-		campoNomeC.setText("");
-		campoRG.setText("");
-		campoCPF.setText("");
-		campoNascimento.setText("");
-		campoEmail.setText("");
-		campoEndereco.setText("");
-		campoCidade.setText("");
-		campoEstado.setText("");
-
-		a++;
-
+		
 	}
 
 	static void registrarCliente() {
+		
+		String[] vetorC = new String[8];
 
 		for (int a = 0; a < idC; a++) {
 
@@ -342,28 +268,6 @@ public class Exercicio51 {
 			}
 			tabela2C.addRow(vetorC);
 		}
-	}
-
-	static void iniciarT() {
-
-		telaT.setTitle("MENU DE TELEFONES");
-		telaT.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		telaT.setSize(300, 700);
-		telaT.setLocation(550, 0);
-		telaT.setLayout(null);
-		telaT.setResizable(false);
-		telaT.setVisible(true);
-		telaT.getContentPane().setBackground(Color.CYAN);
-
-		telaT.add(cadastrarT).setBounds(55, 240, 180, 50);
-		telaT.add(consultarT).setBounds(55, 320, 180, 50);
-		telaT.add(voltar).setBounds(15, 630, 100, 30);
-		telaT.add(sair).setBounds(180, 630, 100, 30);
-
-		cadastrarT.setForeground(Color.MAGENTA);
-		consultarT.setForeground(Color.MAGENTA);
-		voltar.setForeground(Color.MAGENTA);
-		sair.setForeground(Color.MAGENTA);
 	}
 
 	static void cadastrarTelefone() {
@@ -386,8 +290,8 @@ public class Exercicio51 {
 		telaCadastroT.add(telefoneRecado).setBounds(30, 420, 150, 50);
 
 		telaCadastroT.add(salvarT).setBounds(350, 180, 100, 30);
-		telaCadastroT.add(voltar3).setBounds(350, 240, 100, 30);
-
+		telaCadastroT.add(voltar).setBounds(350, 240, 100, 30);;
+		
 		nomeT.setForeground(Color.MAGENTA);
 		telefoneFixo.setForeground(Color.MAGENTA);
 		celular1.setForeground(Color.MAGENTA);
@@ -398,37 +302,7 @@ public class Exercicio51 {
 		telefoneRecado.setForeground(Color.MAGENTA);
 
 		salvarT.setForeground(Color.MAGENTA);
-		voltar3.setForeground(Color.MAGENTA);
-
-		try {
-			mascaraTelefoneFixo = new MaskFormatter(" ( # # ) # # # # - # # # #");
-			mascaraCelular1 = new MaskFormatter(" ( # # ) # # # # - # # # #");
-			mascaraCelular2 = new MaskFormatter(" ( # # ) # # # # - # # # #");
-			mascaraComercial = new MaskFormatter(" ( # # ) # # # # - # # # #");
-			mascaraTelefoneMae = new MaskFormatter(" ( # # ) # # # # - # # # #");
-			mascaraTelefonePai = new MaskFormatter(" ( # # ) # # # # - # # # #");
-			mascaraTelefoneRecado = new MaskFormatter(" ( # # ) # # # # - # # # #");
-
-			mascaraTelefoneFixo.setPlaceholderCharacter('_');
-			mascaraCelular1.setPlaceholderCharacter('_');
-			mascaraCelular2.setPlaceholderCharacter('_');
-			mascaraComercial.setPlaceholderCharacter('_');
-			mascaraTelefoneMae.setPlaceholderCharacter('_');
-			mascaraTelefonePai.setPlaceholderCharacter('_');
-			mascaraTelefoneRecado.setPlaceholderCharacter('_');
-
-		} catch (ParseException excp) {
-			System.err.println("Erro na formatação: " + excp.getMessage());
-		}
-
-		campoNomeT = new JTextField();
-		campoTelefoneFixo = new JFormattedTextField(mascaraTelefoneFixo);
-		campoCelular1 = new JFormattedTextField(mascaraCelular1);
-		campoCelular2 = new JFormattedTextField(mascaraCelular2);
-		campoComercial = new JFormattedTextField(mascaraComercial);
-		campoTelefoneMae = new JFormattedTextField(mascaraTelefoneMae);
-		campoTelefonePai = new JFormattedTextField(mascaraTelefonePai);
-		campoTelefoneRecado = new JFormattedTextField(mascaraTelefoneRecado);
+		voltar.setForeground(Color.MAGENTA);
 
 		telaCadastroT.add(campoNomeT).setBounds(160, 0, 300, 40);
 		telaCadastroT.add(campoTelefoneFixo).setBounds(160, 60, 150, 40);
@@ -456,9 +330,12 @@ public class Exercicio51 {
 		painelConsultaT.setLocation(10, 10);
 		painelConsultaT.setLayout(null);
 		painelConsultaT.setBackground(Color.WHITE);
-		painelConsultaT.add(excluirT).setBounds(550, 615, 200, 30);
+		painelConsultaT.add(excluirT).setBounds(400, 615, 200, 30);
+		painelConsultaT.add(voltar2).setBounds(700, 615, 200, 30);
 
 		excluirT.setForeground(Color.MAGENTA);
+		voltar2.setForeground(Color.MAGENTA);
+		
 		painelConsultaT.add(tabelaT);
 		painelConsultaT.add(barraT);
 
@@ -481,14 +358,14 @@ public class Exercicio51 {
 	static void camposTelefone() {
 		d = 0;
 
-		matrizT[c][d] = campoNomeT.getText();
-		matrizT[c][d + 1] = campoTelefoneFixo.getText();
-		matrizT[c][d + 2] = campoCelular1.getText();
-		matrizT[c][d + 3] = campoCelular2.getText();
-		matrizT[c][d + 4] = campoComercial.getText();
-		matrizT[c][d + 5] = campoTelefoneMae.getText();
-		matrizT[c][d + 6] = campoTelefonePai.getText();
-		matrizT[c][d + 7] = campoTelefoneRecado.getText();
+		matrizT[c][0] = campoNomeT.getText();
+		matrizT[c][1] = campoTelefoneFixo.getText();
+		matrizT[c][2] = campoCelular1.getText();
+		matrizT[c][3] = campoCelular2.getText();
+		matrizT[c][4] = campoComercial.getText();
+		matrizT[c][5] = campoTelefoneMae.getText();
+		matrizT[c][6] = campoTelefonePai.getText();
+		matrizT[c][7] = campoTelefoneRecado.getText();
 
 		campoNomeT.setText("");
 		campoTelefoneFixo.setText("");
@@ -504,6 +381,8 @@ public class Exercicio51 {
 
 	static void registrarTelefone() {
 
+		String[] vetorT = new String[8];
+		
 		for (int c = 0; c < idT; c++) {
 
 			for (int d = 0; d < 8; d++) {
@@ -519,28 +398,6 @@ public class Exercicio51 {
 
 	static void botoesTela() {
 
-		cliente.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				tela.setVisible(false);
-				iniciarC();
-				consultarC.setVisible(false);
-			}
-
-		});
-
-		telefone.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				tela.setVisible(false);
-				iniciarT();
-				consultarT.setVisible(false);
-			}
-
-		});
-
 		cadastrarC.addActionListener(new ActionListener() {
 
 			@Override
@@ -548,6 +405,7 @@ public class Exercicio51 {
 				telaC.setVisible(false);
 				telaConsultarC.setVisible(false);
 				cadastrarCliente();
+				
 			}
 
 		});
@@ -556,9 +414,9 @@ public class Exercicio51 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				telaT.setVisible(false);
-				telaConsultarT.setVisible(false);
+				telaCadastroC.setVisible(false);
 				cadastrarTelefone();
+				
 
 			}
 
@@ -581,8 +439,12 @@ public class Exercicio51 {
 					campoCidade.setEnabled(false);
 					campoEstado.setEnabled(false);
 
-					int atualizacaoC = JOptionPane.showConfirmDialog(null, "DESEJA ATUALIZAR O CADASTRO DE CLIENTES?");
-					if (atualizacaoC == JOptionPane.YES_OPTION) {
+					int salvarC = JOptionPane.showConfirmDialog(null, "DESEJA SALVAR?");
+					if (salvarC == JOptionPane.YES_OPTION) {
+						camposCliente();
+						idC++;
+						JOptionPane.showMessageDialog(null, "CADASTRO REALIZADO COM SUCESSO!!!");
+
 						campoNomeC.setEnabled(true);
 						campoRG.setEnabled(true);
 						campoCPF.setEnabled(true);
@@ -594,12 +456,6 @@ public class Exercicio51 {
 
 					} else {
 
-						camposCliente();
-						idC++;
-						JOptionPane.showMessageDialog(null, "CADASTRO REALIZADO COM SUCESSO!!!");
-						JOptionPane.showMessageDialog(null, "FORAM CADASTRADAS " + idC + " CLIENTES!!!");
-						consultarC.setVisible(true);
-
 						campoNomeC.setEnabled(true);
 						campoRG.setEnabled(true);
 						campoCPF.setEnabled(true);
@@ -608,6 +464,7 @@ public class Exercicio51 {
 						campoEndereco.setEnabled(true);
 						campoCidade.setEnabled(true);
 						campoEstado.setEnabled(true);
+						
 					}
 
 				} else {
@@ -645,8 +502,13 @@ public class Exercicio51 {
 					campoTelefonePai.setEnabled(false);
 					campoTelefoneRecado.setEnabled(false);
 
-					int atualizacaoT = JOptionPane.showConfirmDialog(null, "DESEJA ATUALIZAR O CADASTRO DE TELEFONES?");
-					if (atualizacaoT == JOptionPane.YES_OPTION) {
+					int salvarT = JOptionPane.showConfirmDialog(null, "DESEJA SALVAR?");
+					if (salvarT == JOptionPane.YES_OPTION) {
+
+						camposTelefone();
+						idT++;
+						JOptionPane.showMessageDialog(null, "TELEFONES CADASTRADOS COM SUCESSO!!!");
+						consultarT.setVisible(true);
 
 						campoNomeT.setEnabled(true);
 						campoTelefoneFixo.setEnabled(true);
@@ -658,12 +520,6 @@ public class Exercicio51 {
 						campoTelefoneRecado.setEnabled(true);
 
 					} else {
-
-						camposTelefone();
-						idT++;
-						JOptionPane.showMessageDialog(null, "TELEFONES CADASTRADOS COM SUCESSO!!!");
-						JOptionPane.showMessageDialog(null, "NÚMERO DE PESSOAS CADASTRADAS = " + idT);
-						consultarT.setVisible(true);
 
 						campoNomeT.setEnabled(true);
 						campoTelefoneFixo.setEnabled(true);
@@ -698,8 +554,10 @@ public class Exercicio51 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int excluirC = JOptionPane.showConfirmDialog(null, "SELECIONOU UMA LINHA PARA EXCLUIR?");
+				if (excluirC == JOptionPane.YES_OPTION) {
 				((DefaultTableModel) tabelaC.getModel()).removeRow(tabelaC.getSelectedRow());
-
+				} 
 			}
 		});
 		
@@ -707,8 +565,11 @@ public class Exercicio51 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				int excluirT = JOptionPane.showConfirmDialog(null, "SELECIONOU UMA LINHA PARA EXCLUIR?");
+				if (excluirT == JOptionPane.YES_OPTION) {
 				((DefaultTableModel) tabelaT.getModel()).removeRow(tabelaT.getSelectedRow());
-
+				} 
 			}
 		});
 
@@ -716,29 +577,21 @@ public class Exercicio51 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				int consultaC = JOptionPane.showConfirmDialog(null, "JÁ FORAM CADASTRADOS OS 100 CLIENTES?");
-				if (consultaC == JOptionPane.YES_OPTION) {
 					telaC.setVisible(false);
+					limparTable(tabelaC);
 					consultarCliente();
-				} else {
-					consultarC.setVisible(false);
-				}
+					telaCadastroC.dispose();
 
 			}
 		});
-
+		
 		consultarT.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int consultaT = JOptionPane.showConfirmDialog(null, "JÁ FORAM CADASTRADOS OS 100 CLIENTES?");
-				if (consultaT == JOptionPane.YES_OPTION) {
-					telaT.setVisible(false);
+					telaConsultarC.setVisible(false);
 					consultarTelefone();
-				} else {
-					consultarT.setVisible(false);
-				}
+					
 
 			}
 		});
@@ -747,10 +600,8 @@ public class Exercicio51 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				telaC.setVisible(false);
-				telaT.setVisible(false);
-				iniciar();
-
+				telaCadastroT.setVisible(false);
+				cadastrarCliente();
 			}
 
 		});
@@ -765,15 +616,16 @@ public class Exercicio51 {
 
 		});
 
-		voltar3.addActionListener(new ActionListener() {
+		voltar2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				telaCadastroT.setVisible(false);
-				iniciarT();
+				telaConsultarT.setVisible(false);
+				consultarCliente();
 			}
 
 		});
+
 
 		sair.addActionListener(new ActionListener() {
 
@@ -783,6 +635,12 @@ public class Exercicio51 {
 			}
 		});
 
+	}
+	
+	static void limparTable(JTable table) {
+		while (table.getModel().getRowCount() > 0) {
+			((DefaultTableModel) table.getModel()).removeRow(0);
+		}
 	}
 
 }
