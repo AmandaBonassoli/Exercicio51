@@ -1,3 +1,5 @@
+//TRABALHO FEITO PELA ALUNA AMANDA CAROLINE BONASSOLI SILVA
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -239,7 +241,6 @@ public class Exercicio51 {
 			matrizC[a][5] = campoEndereco.getText();
 			matrizC[a][6] = campoCidade.getText();
 			matrizC[a][7] = campoEstado.getText();
-			System.out.println(matrizC[a][b]);
 			
 			campoNomeC.setText("");
 			campoRG.setText("");
